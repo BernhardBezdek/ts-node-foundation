@@ -26,7 +26,14 @@ export class CalendarComponent implements OnInit {
     }
 
     getCalendarEntry() {
-        this.callendarPlugin.addEvent('Signup for Event', '', '', new Date(this.countdownTime - (1000 * 60 * 15)).toDateString(), new Date(this.countdownTime + (1000 * 60 * 15)).toDateString());
+        let minutesAroundDate = 1000 * 60 * 15;
+        this.callendarPlugin.addEvent(
+            'Signup for Event',
+            '',
+            '',
+            new Date(this.countdownTime - minutesAroundDate).toDateString(),
+            new Date(this.countdownTime + minutesAroundDate).toDateString()
+        );
         this.callendarPlugin.download();
     }
 
