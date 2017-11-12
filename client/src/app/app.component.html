@@ -1,4 +1,11 @@
+<div class="row">
+    <div class="col col-12 col-sm-6 offset-sm-3">
+        <h1 *ngIf="!!invitation">Hey {{invitation.name}}</h1>
+        <h2 *ngIf="!!invitation">Nice to have you here</h2>
+    </div>
+</div>
+
 <app-content></app-content>
-<app-confirmation></app-confirmation>
 <app-countdown></app-countdown>
 <app-calendar></app-calendar>
+<app-confirmation></app-confirmation>

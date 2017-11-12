@@ -19,6 +19,23 @@ export class ContentComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.contentsService.getContents().subscribe(contents => this.contents = contents);
+        this
+            .contentsService
+            .getContents()
+            .subscribe((contents) => {
+                this.contents = contents;
+
+                Object
+                    .keys(contents)
+                    .some((contentName) => {
+                        if (!contents[contentName].default) {
+                            return false;
+                        }
+
+                        this.content = contents[contentName].content;
+                        this.topic = contents[contentName].topic;
+
+                    });
+            });
     }
 }

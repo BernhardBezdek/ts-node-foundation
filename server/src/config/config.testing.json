@@ -3,8 +3,9 @@
     "port": 9999
   },
   "controllers": [
-    "ExampleController"
+    "InviteController"
   ],
+  "seats": 8,
   "states": [
     "testing"
   ]

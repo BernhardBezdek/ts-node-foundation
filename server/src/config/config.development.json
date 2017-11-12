@@ -3,9 +3,9 @@
     "port": 4000
   },
   "controllers": [
-    "ExampleController"
+    "InviteController"
   ],
+  "seats": 8,
   "states": [
-    
   ]
 }

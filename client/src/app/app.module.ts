@@ -13,6 +13,7 @@ import {ConfirmationComponent} from './components/confirmation/confirmation.comp
 import {CountdownComponent} from './components/countdown/countdown.component';
 import {CalendarComponent} from './components/calendar/calendar.component';
 import {ContentService} from "./services/content.service";
+import {InviteService} from "./services/invite.service";
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import {ContentService} from "./services/content.service";
         HttpClientModule,
         FormsModule
     ],
-    providers: [ContentService],
+    providers: [ContentService, InviteService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
