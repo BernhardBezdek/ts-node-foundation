@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "yarn run develop",
-    "develop": "ng serve --allowJs --proxy-config proxy.conf.json --open ",
-    "build": "ng build --prod --allowJs",
+    "develop": "ng serve --proxy-config proxy.conf.json --open ",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

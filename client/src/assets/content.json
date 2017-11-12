@@ -2,16 +2,16 @@
   {
     "topic": "Story",
     "default": true,
-    "content": "In den Vereinigten Staaten ist der Thanksgiving Day ein staatlicher Feiertag, der am vierten Donnerstag des Monats November gefeiert wird.[1] Das Fest zitiert Elemente aus dem Pionierleben der Pilgerväter (Plymouth Colony) und trägt somit einen gewissen nationalen Charakter. Thanksgiving ist in den Vereinigten Staaten das wichtigste Familienfest im Jahreskreis, außerdem werden von vielen Familien auch Freunde oder andere Gäste eingeladen. In seinem Mittelpunkt steht eine große Mahlzeit (häufig Abendessen). Da sich oft alle Generationen einer Familie versammeln und sie zum Teil über alle Landesteile verstreut leben, herrscht auf Flughäfen und Straßen des Landes rund um das Fest weitaus mehr Verkehr als zu allen anderen Jahreszeiten.      Zum „Black Friday“ (dem Freitag nach Thanksgiving) gewährt der Einzelhandel traditionell hohe Rabatte. Dieser Tag wird häufig für die ersten Weihnachtseinkäufe genutzt, ab dann wird in der Öffentlichkeit zunehmend weihnachtlich dekoriert. Für die Wirtschaft ist der Umsatz dieses Tages ein wichtiger Stimmungsindikator.      In Kanada wird das Fest am zweiten Montag im Oktober gefeiert. Dort ist Thanksgiving in den meisten Provinzen ein Feiertag, so dass er eines der beliebten langen Wochenenden im Jahr bildet. Das Fest war ursprünglich auf den 12. Oktober (Columbus Day, der Tag, an dem die „Neue Welt“ entdeckt wurde) terminiert, wurde aber – wie auch Columbus Day in den USA – auf einen Montag verlegt."
+    "content": "Die Story <strong>mit basis Formatierung usw</strong>"
   },
   {
-    "topic": "Manifesto",
+    "topic": "Manifest",
     "default": false,
-    "content": "Ein Manifest (lateinisch manifestus ‚handgreiflich gemacht‘) ist eine öffentliche Erklärung von Zielen und Absichten, oftmals politischer Natur. Als Begriff der Kunst- und Literaturgeschichte auch für ästhetische Programme seit 1800 verwendet."
+    "content": "Das manifest <strong>mit basis Formatierung usw</strong>"
   },
   {
-    "topic": "Transparency",
+    "topic": "Transparenz",
     "default": false,
-    "content": "Transparenz ist in der Politik und im politischen Diskurs eine Forderung bzw. ein für erstrebenswert gehaltener Zustand frei zugänglicher Informationen und stetiger Rechenschaft über Abläufe, Sachverhalte, Vorhaben und Entscheidungsprozesse. Damit verbunden die Vorstellung einer offenen Kommunikation zwischen den Akteuren des politischen Systems (bzw. von Verwaltung) und den Bürgern und einer vermehrten Partizipation. In eine ähnliche Richtung zielen die Begriffe Verwaltungstransparenz und Öffentlichkeitsprinzip. Als Metapher dient die optische Transparenz: ein transparentes Objekt kann durchschaut werden (vgl. etwa „Gläserner Abgeordneter“)."
+    "content": "Die Transparenz <strong>mit basis Formatierung usw</strong>"
   }
 ]
