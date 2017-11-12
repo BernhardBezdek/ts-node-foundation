@@ -1,4 +1,5 @@
 export const environment = {
     production: true,
-    api: ''
+    api: '',
+    contents: 'assets/content.json',
 };
