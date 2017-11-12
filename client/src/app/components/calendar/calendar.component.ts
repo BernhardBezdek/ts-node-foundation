@@ -31,7 +31,6 @@ export class CalendarComponent implements OnInit {
         let start = new Date(this.countdownTime - minutesAroundDate).toISOString().replace(/[A-Z]/g, ' ').replace(/\.000\s/, '').replace(/-/g, '/');
         let end = new Date(this.countdownTime + minutesAroundDate).toISOString().replace(/[A-Z]/g, ' ').replace(/\.000\s/, '').replace(/-/g, '/');
 
-        alert(start);
 
         this.callendarPlugin.addEvent(
             'Signup for Event',
