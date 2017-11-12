@@ -31,8 +31,8 @@ export class CalendarComponent implements OnInit {
             'Signup for Event',
             '',
             '',
-            new Date(this.countdownTime - minutesAroundDate).toDateString(),
-            new Date(this.countdownTime + minutesAroundDate).toDateString()
+            new Date(this.countdownTime - minutesAroundDate).toISOString().replace(/[A-Z]/g,' ').replace(/\.000\s/,'').replace(/-/g, '/'),
+            new Date(this.countdownTime + minutesAroundDate).toISOString().replace(/[A-Z]/g,' ').replace(/\.000\s/,'').replace(/-/g, '/'),
         );
         this.callendarPlugin.download();
     }
