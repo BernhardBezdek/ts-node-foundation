@@ -1,42 +1,44 @@
-<div class="row">
-    <div class="intro col col-12 col-sm-6 offset-sm-3">
+<div class="container">
 
-        <ng-container *ngIf="invitation && (!invitation.confirmed && !invitation.declined)">
-            <div class="alert alert-info fade show" role="alert">
-                <strong>Hey {{invitation.name}}</strong>
-                <p>Hier ist deine persönliche Einladung zu einer Veranstaltung</p>
-            </div>
-        </ng-container>
+    <div class="row">
+        <div class="intro col col-12 col-sm-6 offset-sm-3">
 
-        <ng-container *ngIf="invitation && invitation.declined">
-            <div class="alert alert-warning fade show" role="alert">
-                <strong>Hey {{invitation.name}}</strong>
-                <p>
-                    Wir haben deine Absage erhalten.
-                </p>
-            </div>
-        </ng-container>
+            <ng-container *ngIf="invitation && (!invitation.confirmed && !invitation.declined)">
+                <div class="alert alert-info fade show" role="alert">
+                    <strong>Hey {{invitation.name}}</strong>
+                    <p>Hier ist deine persönliche Einladung zu einer Veranstaltung</p>
+                </div>
+            </ng-container>
 
-        <ng-container *ngIf="invitation && invitation.confirmed">
-            <div class="alert alert-success fade show" role="alert">
-                <strong>Hey {{invitation.name}}</strong>
-                <p>
-                    freuen uns auf dich.
-                </p>
-            </div>
-        </ng-container>
+            <ng-container *ngIf="invitation && invitation.declined">
+                <div class="alert alert-warning fade show" role="alert">
+                    <strong>Hey {{invitation.name}}</strong>
+                    <p>
+                        Wir haben deine Absage erhalten.
+                    </p>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="invitation && invitation.confirmed">
+                <div class="alert alert-success fade show" role="alert">
+                    <strong>Hey {{invitation.name}}</strong>
+                    <p>
+                        freuen uns auf dich.
+                    </p>
+                </div>
+            </ng-container>
+
+        </div>
+
 
     </div>
 
+    <app-content *ngIf="!!invitation && !invitation.declined"></app-content>
 
+    <ng-container *ngIf="!!invitation && !invitation.declined && !invitation.confirmed">
+        <app-countdown [countdownTime]="countdownTime"></app-countdown>
+        <app-confirmation [registrationOpened]="registrationOpened" (stateChanged)="refresh()"></app-confirmation>
+        <app-calendar [name]="name" [description]="description" [countdownTime]="countdownTime"
+                      [reminderForLabel]="reminderForLabel"></app-calendar>
+    </ng-container>
 </div>
-
-
-<app-content *ngIf="!!invitation && !invitation.declined"></app-content>
-
-<ng-container *ngIf="!!invitation && !invitation.declined && !invitation.confirmed">
-    <app-countdown [countdownTime]="countdownTime"></app-countdown>
-    <app-confirmation [registrationOpened]="registrationOpened" (stateChanged)="refresh()"></app-confirmation>
-    <app-calendar [name]="name" [description]="description" [countdownTime]="countdownTime"
-                  [reminderForLabel]="reminderForLabel"></app-calendar>
-</ng-container>
