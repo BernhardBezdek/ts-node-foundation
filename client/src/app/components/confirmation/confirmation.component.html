@@ -1,8 +1,8 @@
 <div class="confirmation row">
-    <div class="topics text-center col col-12 col-sm-6 offset-sm-3">
+    <div class="topics col col-12 col-sm-6 offset-sm-3">
 
         <div *ngIf="confirmConfirmation || declineConfirmation"
-             class="alert alert-success alert-dismissible fade show"
+             class="alert alert-dismissible fade show alert-info"
              role="alert"
         >
             <button (click)="confirmConfirmation=false;declineConfirmation=false;"
@@ -14,19 +14,20 @@
             </button>
 
             <p *ngIf="confirmConfirmation">
-                <strong>Notice:</strong>
+                <strong>Hinweis:</strong><br/>
                 Ich bin dabei und bestätige hiermit, dass ich die Regeln gelesen habe und akzeptiere.
             </p>
 
             <p *ngIf="declineConfirmation">
-                <strong>Notice:</strong>
-                Ich bin dabei und bestätige hiermit, dass ich die Regeln gelesen habe und akzeptiere.
+                <strong>Hinweis:</strong><br/>
+                Danke für deine Rückmeldung... vieleicht sehen wir uns bei der nächsten Veranstaltung.
             </p>
 
             <button *ngIf="confirmConfirmation"
+                    [disabled]="!registrationOpened"
                     (click)="confirm(true)"
                     type="button"
-                    class="btn btn-lg btn-block btn-primary"
+                    class="btn btn-lg btn-block btn-danger"
             >
                 ZUSAGEN
             </button>
@@ -34,20 +35,31 @@
             <button *ngIf="declineConfirmation"
                     (click)="decline(true)"
                     type="button"
-                    class="btn btn-lg btn-block btn-primary"
+                    class="btn btn-lg btn-block btn-danger"
             >
                 ABSAGEN
             </button>
         </div>
 
-
         <div *ngIf="!confirmConfirmation && !declineConfirmation" class="row">
+
             <div class="col col-6">
-                <button (click)="decline()" class="btn btn-block btn-lg btn-outline-danger">I'm out</button>
+                <button [disabled]="!registrationOpened"
+                        (click)="confirm()"
+                        class="btn btn-block btn-lg btn-outline-primary"
+                >
+                    Bin dabei
+                </button>
             </div>
+
             <div class="col col-6">
-                <button (click)="confirm()" class="btn btn-block btn-lg btn-outline-primary">I'm in</button>
+                <button (click)="decline()"
+                        class="btn btn-block btn-lg btn-outline-danger"
+                >
+                    Keine Zeit
+                </button>
             </div>
+
         </div>
     </div>
 </div>

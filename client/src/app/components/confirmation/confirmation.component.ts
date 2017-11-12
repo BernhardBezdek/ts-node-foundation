@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {InviteService} from "../../services/invite.service";
 
 @Component({
@@ -9,6 +9,7 @@ import {InviteService} from "../../services/invite.service";
 })
 export class ConfirmationComponent implements OnInit {
 
+    @Input() public registrationOpened: boolean = false;
     @Output() public stateChanged = new EventEmitter();
 
     public confirmConfirmation: boolean = false;

@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
 
     public invitation: InviteModel;
 
+    public registrationOpened: boolean = false;
     public reminderForLabel: string;
     public name: string;
     public description: string;
@@ -23,9 +24,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-
         this._setCountdownTime();
-
         this.refresh();
     }
 
@@ -39,6 +38,7 @@ export class AppComponent implements OnInit {
             this.name = 'Registration opens';
             this.description = 'Reminds you 15 minutes before registration will be opened';
         } else if (now <= environment.dates.event) {
+            this.registrationOpened = true;
             this.reminderForLabel = 'event';
             this.countdownTime = environment.dates.event;
             this.name = 'Event';

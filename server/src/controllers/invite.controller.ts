@@ -7,6 +7,25 @@ export class InviteController extends BaseController {
     protected _endpoint: string = '/invite';
     protected _repository = new InviteRepository();
 
+
+    protected _fetch(id: string) {
+        return this._repository.fetch(id).then((invitation: InviteModel) => {
+
+            invitation.visits.push(new Date().getTime());
+
+            return this._repository.update(id, {visits: invitation.visits}).then(() => {
+                return invitation;
+            });
+        })
+    }
+
+    protected _remove(id: string) {
+        return this._repository.update(id, {declined: true});
+    }
+
+
+    /// Not implemented
+
     protected _create() {
         return new Promise((resolve) => resolve({error: 'NOT_IMPLEMENTED'}));
     }
@@ -15,8 +34,5 @@ export class InviteController extends BaseController {
         return new Promise((resolve) => resolve([{error: 'NOT_IMPLEMENTED'}]));
     }
 
-    protected _remove(id: string) {
-        console.log('DECLINED ENDPOINT CALLED');
-        return this._repository.update(id, {declined: true});
-    }
+
 }
