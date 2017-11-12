@@ -1,11 +1,14 @@
 <div class="row">
     <div class="col col-12 col-sm-6 offset-sm-3">
-        <h1 *ngIf="!!invitation">Hey {{invitation.name}}</h1>
-        <h2 *ngIf="!!invitation">Nice to have you here</h2>
+        <h4 *ngIf="!!invitation">Hey {{invitation.name}}</h4>
+        <h5 *ngIf="!!invitation">Nice to have you here</h5>
     </div>
 </div>
 
-<app-content></app-content>
-<app-countdown></app-countdown>
-<app-calendar></app-calendar>
-<app-confirmation></app-confirmation>
+
+<ng-container *ngIf="!!invitation && !invitation.declined">
+    <app-content></app-content>
+    <app-confirmation (stateChanged)="refresh()"></app-confirmation>
+    <app-countdown [countdownTime]="countdownTime"></app-countdown>
+    <app-calendar [name]="name" [description]="description" [countdownTime]="countdownTime" [reminderForLabel]="reminderForLabel"></app-calendar>
+</ng-container>

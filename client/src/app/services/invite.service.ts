@@ -15,7 +15,15 @@ export class InviteService {
     }
 
     fetch(): Observable<InviteDataInterface> {
-        return this._httpClient.get<InviteDataInterface>(environment.api + '/invite/' + this._identifier)
+        return this._httpClient.get<InviteDataInterface>(environment.api + '/invite/' + this._identifier);
+    }
+
+    confirm() {
+        return this._httpClient.put<Boolean>(environment.api + '/invite/' + this._identifier, {confirmed: true});
+    }
+
+    decline() {
+        return this._httpClient.delete<Boolean>(environment.api + '/invite/' + this._identifier);
     }
 
 }

@@ -1,6 +1,7 @@
 import * as Promise from "bluebird";
 import {BaseController} from "../classes/base/base-controller";
 import {InviteRepository} from "../repositories/invite.repository";
+import {InviteModel} from "../models/invite.model";
 
 export class InviteController extends BaseController {
     protected _endpoint: string = '/invite';
@@ -14,7 +15,8 @@ export class InviteController extends BaseController {
         return new Promise((resolve) => resolve([{error: 'NOT_IMPLEMENTED'}]));
     }
 
-    protected _remove() {
-        return new Promise((resolve) => resolve({error: 'NOT_IMPLEMENTED'}));
+    protected _remove(id: string) {
+        console.log('DECLINED ENDPOINT CALLED');
+        return this._repository.update(id, {declined: true});
     }
 }

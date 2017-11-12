@@ -1,16 +1,54 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {InviteService} from "../../services/invite.service";
 
 @Component({
-  selector: 'app-confirmation',
-  templateUrl: './confirmation.component.html',
-  styleUrls: ['./confirmation.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-confirmation',
+    templateUrl: './confirmation.component.html',
+    styleUrls: ['./confirmation.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class ConfirmationComponent implements OnInit {
 
-  constructor() { }
+    @Output() public stateChanged = new EventEmitter();
 
-  ngOnInit() {
-  }
+    public confirmConfirmation: boolean = false;
+    public declineConfirmation: boolean = false;
+
+    constructor(private inviteService: InviteService) {
+    }
+
+    ngOnInit() {
+
+    }
+
+    public confirm() {
+        if (!this.confirmConfirmation) {
+            this.confirmConfirmation = true;
+        } else {
+            this.confirmConfirmation = false;
+
+            this
+                .inviteService
+                .confirm()
+                .subscribe((result) => {
+                    this.stateChanged.emit(result);
+                });
+        }
+    }
+
+    public decline() {
+        if (!this.declineConfirmation) {
+            this.declineConfirmation = true;
+        } else {
+            this.declineConfirmation = false;
+
+            this
+                .inviteService
+                .decline()
+                .subscribe((result) => {
+                    this.stateChanged.emit(result);
+                });
+        }
+    }
 
 }

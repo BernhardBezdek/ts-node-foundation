@@ -1,6 +1,6 @@
 import * as Promise from "bluebird";
 import {createHash} from "crypto";
-import {createReadStream, createWriteStream, readdir, ReadStream, WriteStream, unlink, stat} from "fs";
+import {createReadStream, createWriteStream, mkdir, readdir, ReadStream, WriteStream, unlink, stat} from "fs";
 import {BasePersistence} from "../classes/base/base-persistence";
 import {ModelInterface} from "../interfaces/model.interface";
 
@@ -8,6 +8,25 @@ export class PersistenceFs extends BasePersistence {
 
     constructor(private _targetDir: string) {
         super();
+
+        Promise
+            .promisify(stat)(_targetDir)
+            .catch((error) => {
+                switch (error.code) {
+                    case 'ENOENT':
+
+                        console.log('Folder ' + this._targetDir + ' does not exists.');
+                        console.log('Creating it...');
+
+                        Promise
+                            .promisify(mkdir)(_targetDir)
+                            .then(() => {
+                                console.log('Created data folder ' + this._targetDir);
+                            });
+
+                        break;
+                }
+            });
     }
 
     protected _create(model: ModelInterface): Promise<boolean> {

@@ -10,7 +10,7 @@ export const environment = {
     contents: 'assets/content.json',
 
     dates: {
-        registration: 1234567890000,
-        event: 1234567890000,
+        registration: 1510509600000,
+        event: 1511623800000,
     }
 };

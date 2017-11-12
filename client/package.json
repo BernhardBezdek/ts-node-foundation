@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "yarn run develop",
-    "develop": "ng serve --proxy-config proxy.conf.json --open",
-    "build": "ng build --prod",
+    "develop": "ng serve --allowJs --proxy-config proxy.conf.json --open ",
+    "build": "ng build --prod --allowJs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -25,6 +25,7 @@
     "bootstrap": "4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
+    "ics.js": "https://github.com/nwcell/ics.js",
     "jquery": "^3.2.1",
     "open-iconic": "^1.1.1",
     "rxjs": "^5.5.2",

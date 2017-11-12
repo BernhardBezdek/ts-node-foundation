@@ -8,7 +8,7 @@ import {PersistenceFs} from "../persistences/persistence.fs";
 export class InviteRepository extends BaseRepository {
 
     // Both persistence layers provide an identical interface
-    protected _persistence: PersistenceInterface = new PersistenceFs(__dirname + '/../../../data');
+    protected _persistence: PersistenceInterface = new PersistenceFs(__dirname + '/../../../data/invites');
     //protected _persistence: PersistenceInterface = new PersistenceMemory();
 
     protected _getModel(modelData): ModelInterface {
