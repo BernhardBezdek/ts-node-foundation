@@ -1,0 +1,18 @@
+<div class="row">
+    <div *ngIf="!!contents" class="topics text-center col col-12 col-sm-6 offset-sm-3">
+        <div class="btn-group">
+            <button *ngFor="let contentItem of contents"
+                    (click)="topic = contentItem.topic;content=contentItem.content"
+                    [class.btn-primary]="contentItem.topic!==topic"
+                    [class.btn-danger]="contentItem.topic===topic"
+                    class="btn"
+            >
+                {{contentItem.topic}}
+            </button>
+        </div>
+    </div>
+    <div class="content col col-12 col-sm-6 offset-sm-3" *ngIf="!!topic">
+        <h3>{{topic}}</h3>
+        <p>{{content}}</p>
+    </div>
+</div>

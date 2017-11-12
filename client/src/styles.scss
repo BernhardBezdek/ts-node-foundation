@@ -3,7 +3,7 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/open-iconic/font/css/open-iconic.css";
 @import "bootstrap-theme-override";
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 $color-background-main: #4b657f;
 $color-text-main: #ffffff;
@@ -12,4 +12,5 @@ $color-button-main: #f55195;
 body {
   background-color: $color-background-main;
   color: $color-text-main;
+  font-family: 'Open Sans', sans-serif;
 }

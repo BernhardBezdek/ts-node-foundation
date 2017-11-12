@@ -5,5 +5,12 @@
 
 export const environment = {
     production: false,
-    api: '/api'
+    api: '/api',
+
+    contents: 'assets/content.json',
+
+    dates: {
+        registration: 1234567890000,
+        event: 1234567890000,
+    }
 };
