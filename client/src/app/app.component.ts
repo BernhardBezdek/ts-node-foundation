@@ -53,6 +53,13 @@ export class AppComponent implements OnInit {
         this
             .inviteService
             .fetch()
-            .subscribe((invite: InviteDataInterface) => this.invitation = new InviteModel(invite));
+            .subscribe((invite: InviteDataInterface) => {
+
+                if (!invite) {
+                    return;
+                }
+
+                this.invitation = new InviteModel(invite);
+            });
     }
 }

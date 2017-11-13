@@ -9,6 +9,7 @@ export class InviteController extends BaseController {
 
 
     protected _fetch(id: string) {
+        console.log(id.toString());
         return this._repository.fetch(id).then((invitation: InviteModel) => {
 
             invitation.visits.push(new Date().getTime());

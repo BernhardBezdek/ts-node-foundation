@@ -1,16 +1,15 @@
-<div class="container">
-
+<div *ngIf="!!invitation" class="container">
     <div class="row">
         <div class="intro col col-12 col-md-6 offset-md-3">
 
-            <ng-container *ngIf="invitation && (!invitation.confirmed && !invitation.declined)">
+            <ng-container *ngIf="(!invitation.confirmed && !invitation.declined)">
                 <div class="alert alert-info fade show" role="alert">
                     <strong>Hey {{invitation.name}}</strong>
                     <p>Hier ist deine persönliche Einladung zu einer Veranstaltung</p>
                 </div>
             </ng-container>
 
-            <ng-container *ngIf="invitation && invitation.declined">
+            <ng-container *ngIf="invitation.declined">
                 <div class="alert alert-warning fade show" role="alert">
                     <strong>Hey {{invitation.name}}</strong>
                     <p>
@@ -19,7 +18,7 @@
                 </div>
             </ng-container>
 
-            <ng-container *ngIf="invitation && invitation.confirmed">
+            <ng-container *ngIf="invitation.confirmed">
                 <div class="alert alert-success fade show" role="alert">
                     <strong>Hey {{invitation.name}}</strong>
                     <p>
@@ -33,9 +32,9 @@
 
     </div>
 
-    <app-content *ngIf="!!invitation && !invitation.declined"></app-content>
+    <app-content *ngIf="!invitation.declined"></app-content>
 
-    <ng-container *ngIf="!!invitation && !invitation.declined && !invitation.confirmed">
+    <ng-container *ngIf="!invitation.declined && !invitation.confirmed">
         <app-countdown [countdownTime]="countdownTime"></app-countdown>
         <app-confirmation [registrationOpened]="registrationOpened" (stateChanged)="refresh()"></app-confirmation>
         <app-calendar [name]="name" [description]="description" [countdownTime]="countdownTime"
