@@ -34,7 +34,7 @@ export class InviteRepository extends BaseRepository {
                     })
                     .then((baseUrl) => {
                         return invitations.map((invitation) => {
-                            return invitation.name + ' - ' + baseUrl + '#' + invitation.id;
+                            return invitation.name + ' - ' + baseUrl + invitation.id;
                         });
                     })
                     .then((inviteList) => {
