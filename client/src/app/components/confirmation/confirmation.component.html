@@ -2,7 +2,7 @@
     <div class="topics col col-12 col-md-6 offset-md-3">
 
         <div *ngIf="confirmConfirmation || declineConfirmation"
-             class="alert alert-dismissible fade show alert-info"
+             class="alert alert-dismissible fade show alert-blank"
              role="alert"
         >
             <button (click)="confirmConfirmation=false;declineConfirmation=false;"
@@ -27,7 +27,7 @@
                     [disabled]="!registrationOpened"
                     (click)="confirm(true)"
                     type="button"
-                    class="btn btn-lg btn-block btn-danger"
+                    class="btn btn-lg btn-block btn-success"
             >
                 ZUSAGEN
             </button>
@@ -46,7 +46,7 @@
             <div class="col col-6">
                 <button [disabled]="!registrationOpened"
                         (click)="confirm()"
-                        class="btn btn-block btn-lg btn-outline-primary"
+                        class="btn btn-block btn-lg btn-outline-blank"
                 >
                     Bin dabei
                 </button>
@@ -54,7 +54,7 @@
 
             <div class="col col-6">
                 <button (click)="decline()"
-                        class="btn btn-block btn-lg btn-outline-danger"
+                        class="btn btn-block btn-lg btn-outline-blank"
                 >
                     Keine Zeit
                 </button>

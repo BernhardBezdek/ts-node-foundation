@@ -3,14 +3,52 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/open-iconic/font/css/open-iconic.css";
 @import "bootstrap-theme-override";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+//@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-$color-background-main: #4b657f;
+$color-background-main: #000;
 $color-text-main: #ffffff;
 $color-button-main: #f55195;
 
+html{
+  background-color: #000;
+  background: url(assets/wallpaper-color.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
-  background-color: $color-background-main;
+  background-color: transparent;
   color: $color-text-main;
-  font-family: 'Open Sans', sans-serif;
+
+  //font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
+
+}
+
+.btn-outline-blank {
+  background-color: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+  font-size: 20px;
+
+  &.active {
+    background-color: #fff;
+    color: #000;
+    border: solid 1px #000;
+
+  }
+}
+
+.alert-blank {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: solid 1px #000;
+  color: #000;
+
+  p{
+    font-size: 19px;
+    line-height: 22px;
+  }
 }

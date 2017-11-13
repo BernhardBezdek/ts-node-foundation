@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {ContentService} from "../../services/content.service";
 
 @Component({
@@ -9,11 +9,12 @@ import {ContentService} from "../../services/content.service";
 })
 export class ContentComponent implements OnInit {
 
+    @Input() public guest: string;
 
     public contents: any;
     public topic: string;
     public content: string;
-
+    public guestRegExp: RegExp = new RegExp('#GUEST', 'g');
 
     constructor(private contentsService: ContentService) {
     }
