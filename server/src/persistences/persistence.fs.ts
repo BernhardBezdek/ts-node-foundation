@@ -53,7 +53,6 @@ export class PersistenceFs extends BasePersistence {
         return Promise
             .promisify(readdir)(this._targetDir)
             .then((fileNames) => {
-
                 return Promise.all(fileNames
                     .filter((fileName) => fileName.charAt(0) !== '.')
                     .map((fileName) => {
