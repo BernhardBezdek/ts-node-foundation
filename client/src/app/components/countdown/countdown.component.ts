@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-countdown',
@@ -12,7 +13,7 @@ export class CountdownComponent implements OnInit {
     public countdown: string;
     public targetDate: Date;
 
-    constructor() {
+    constructor(private translate: TranslateService) {
     }
 
     ngOnInit() {

@@ -3,6 +3,7 @@ import {InviteService} from "./services/invite.service";
 import {InviteModel} from "../../../server/src/models/invite.model";
 import {InviteDataInterface} from "../../../shared/interfaces/invite-data.interface";
 import {environment} from '../environments/environment';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-root',
@@ -19,8 +20,8 @@ export class AppComponent implements OnInit {
     public description: string;
     public countdownTime: number;
 
-    constructor(private inviteService: InviteService) {
-
+    constructor(private inviteService: InviteService, private translate: TranslateService) {
+        translate.setDefaultLang('en');
     }
 
     ngOnInit() {

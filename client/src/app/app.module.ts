@@ -1,9 +1,8 @@
 // MODULES
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
-import {TranslateModule} from '@ngx-translate/core';
-
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 // SERVICES
 
 // COMPONENTS
@@ -15,7 +14,7 @@ import {CountdownComponent} from './components/countdown/countdown.component';
 import {CalendarComponent} from './components/calendar/calendar.component';
 import {ContentService} from "./services/content.service";
 import {InviteService} from "./services/invite.service";
-
+import {HttpLoaderFactory} from "./factories/translate-http-loader";
 
 @NgModule({
     declarations: [
@@ -29,7 +28,13 @@ import {InviteService} from "./services/invite.service";
         BrowserModule,
         HttpClientModule,
         FormsModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (HttpLoaderFactory),
+                deps: [HttpClient]
+            }
+        })
     ],
     providers: [ContentService, InviteService],
     bootstrap: [AppComponent]

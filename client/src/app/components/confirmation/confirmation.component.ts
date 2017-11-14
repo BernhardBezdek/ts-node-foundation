@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {InviteService} from "../../services/invite.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-confirmation',
@@ -15,7 +16,7 @@ export class ConfirmationComponent implements OnInit {
     public confirmConfirmation: boolean = false;
     public declineConfirmation: boolean = false;
 
-    constructor(private inviteService: InviteService) {
+    constructor(private inviteService: InviteService, private translate: TranslateService) {
     }
 
     ngOnInit() {

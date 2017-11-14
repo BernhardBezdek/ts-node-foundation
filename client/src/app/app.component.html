@@ -1,19 +1,14 @@
 <div *ngIf="!!invitation" class="container">
+
     <div class="row">
         <div class="intro col col-12 col-md-6 offset-md-3">
-
             <ng-container *ngIf="invitation.declined">
                 <div class="alert alert-blank fade show" role="alert">
-                    <p>
-                        Hey {{invitation.name}},<br>
-                        wir haben deine Absage erhalten.
+                    <p [innerHtml]="'MAIN.DECLINATION' | translate:invitation">
                     </p>
                 </div>
             </ng-container>
-
         </div>
-
-
     </div>
 
     <app-content [guest]="invitation.name" *ngIf="!invitation.declined"></app-content>
@@ -26,17 +21,8 @@
     <ng-container *ngIf="invitation.confirmed">
         <hr/>
         <div class="row">
-
-            <div class="content col col-12 col-md-6 offset-md-3 text-center">
-                <h5>Adresse:</h5>
-                <strong>Kaiserstraße 105</strong>
-                <br/>
-                <strong>63065 Offenbach am Main</strong>
-                <br/>
-                <br/>
-                <br/>
-            </div>
+            <div class="content col col-12 col-md-6 offset-md-3 text-center"
+                 [innerHtml]="'MAIN.ADDRESS_HTML' | translate"></div>
         </div>
-
     </ng-container>
 </div>
