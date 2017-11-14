@@ -1,17 +1,7 @@
 [
   {
-    "topic": "Story",
+    "topic": "INTRO",
     "default": true,
-    "content": "YO #GUEST<br/>Nice to have you here ;)<br>Am 25.09.2017 laden wir ein zu Speis und trank und sg dudfgsuoh sdu fh aso ufh a sfuh fasuh aafuhs sdfah asfuh apsfuh afouh fpsd aufasduh asfuh asfuh sfuh aufh asfuhafuhasd fasudifhs fhsadf apdsouhfas pofuha pasdofuhadp adosufgpfdsoudapuds"
-  },
-  {
-    "topic": "Rules",
-    "default": false,
-    "content": "Dear #GUEST<br/> it's important to read and understand the rules bla bla blas"
-  },
-  {
-    "topic": "Transparenz",
-    "default": false,
-    "content": "Die Transparenz <strong>mit basis Formatierung usw</strong>"
+    "content": "Hi #GUEST<br> Nice to have you here"
   }
 ]

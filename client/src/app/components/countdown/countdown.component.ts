@@ -10,7 +10,7 @@ import {TranslateService} from "@ngx-translate/core";
 export class CountdownComponent implements OnInit {
 
     @Input() public countdownTime: number;
-    public countdown: string;
+    public countdown: any = {days: '', hours: '', minutes: '', seconds: ''};
     public targetDate: Date;
 
     constructor(private translate: TranslateService) {
@@ -37,7 +37,18 @@ export class CountdownComponent implements OnInit {
         minutes = minutes - (days * 24 * 60) - (hours * 60);
         seconds = seconds - (days * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60);
 
-        this.countdown = days + ' Days / ' + hours + ' Hours / ' + minutes + ' Minutes';
+        this.countdown.days = days.toString();
+        this.countdown.hours = hours.toString();
+        this.countdown.minutes = minutes.toString();
+        this.countdown.seconds = seconds.toString();
+
+        this.countdown = {
+            days: days.toString(),
+            hours: hours.toString(),
+            minutes: minutes.toString(),
+            seconds: seconds.toString()
+        };
+        //this.countdown = days + ' Days / ' + hours + ' Hours / ' + minutes + ' Minutes';
     }
 
 

@@ -3,17 +3,13 @@
     "TITLE": "TITLE"
   },
   "MAIN": {
-    "DECLINATION": "<b>DECLINATION {{name}}<b>,<br/><br/>DECLINATION",
-    "ADDRESS_HTML": "<h5>Adresse:</h5><strong>Kaiserstraße 105</strong><br/><strong>63065 Offenbach am Main</strong><br/><br/><br/>"
+    "DECLINATION": "DECLINATION"
   },
   "CONTENT": {
   },
   "COUNTDOWN": {
     "REGISTRATION_OPENS_IN": "REGISTRATION_OPENS_IN",
-    "DAY": "DAYS",
-    "HOUR": "HOURS",
-    "MINUTE": "MINUTES",
-    "SECOND": "SECONDS"
+    "COUNTDOWN": "{{days}} Tag {{hours}} Stunden {{minutes}} Minuten"
   },
   "CONFIRMATION": {
     "ATTEND": "ATTEND",
