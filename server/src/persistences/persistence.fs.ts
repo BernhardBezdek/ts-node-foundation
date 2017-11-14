@@ -1,5 +1,4 @@
 import * as Promise from "bluebird";
-import {createHash} from "crypto";
 import {createReadStream, createWriteStream, mkdir, readdir, ReadStream, WriteStream, unlink, stat} from "fs";
 import {BasePersistence} from "../classes/base/base-persistence";
 import {ModelInterface} from "../interfaces/model.interface";
@@ -30,23 +29,34 @@ export class PersistenceFs extends BasePersistence {
     }
 
     protected _create(model: ModelInterface): Promise<boolean> {
-        return new Promise((resolve: any) => {
-            let modelData = model.toJSON();
-            let fileName = modelData.id || this._getHashString(JSON.stringify(modelData));
+        let modelData = model.toJSON();
+        let id = modelData.id || this._getHashString(JSON.stringify(modelData));
 
-            delete modelData.id;
+        return Promise
+            .promisify(stat)(this._targetDir + '/' + id).then((exists)=>{
+                console.log('ARRIVE HERE due to existence');
+                return false;
+            })
+            .catch((error) => {
+                console.log('File does not exist... creating it');
+                return new Promise((resolve: any) => {
 
-            let writeStream: WriteStream = createWriteStream(
-                this._targetDir + '/' + fileName,
-                {encoding: 'utf-8'});
+                    let fileName = modelData.id || this._getHashString(JSON.stringify(modelData));
 
-            writeStream.on('finish', () => {
-                resolve(true);
+                    delete modelData.id;
+
+                    let writeStream: WriteStream = createWriteStream(
+                        this._targetDir + '/' + fileName,
+                        {encoding: 'utf-8'});
+
+                    writeStream.on('finish', () => {
+                        resolve(true);
+                    });
+
+                    writeStream.write(JSON.stringify(modelData));
+                    writeStream.end();
+                });
             });
-
-            writeStream.write(JSON.stringify(modelData));
-            writeStream.end();
-        });
     }
 
     protected _fetchAll(): Promise<Array<any>> {
@@ -100,14 +110,16 @@ export class PersistenceFs extends BasePersistence {
             this
                 ._fetch(id)
                 .then((storageItem) => {
-                    // TODO iterate modelData and map only properties which are inside the existing model
+
                     if (!storageItem) {
                         resolve(false);
+                        return;
                     }
 
                     let fileName = id;
                     let updateData = model.toJSON();
                     delete updateData.id;
+
 
                     let writeStream: WriteStream = createWriteStream(
                         this._targetDir + '/' + fileName,
@@ -138,9 +150,5 @@ export class PersistenceFs extends BasePersistence {
                 });
         });
 
-    }
-
-    private _getHashString(inputString: string): string {
-        return createHash('sha256').update(inputString).digest('hex');
     }
 }
