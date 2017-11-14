@@ -1,5 +1,5 @@
 <div class="row">
-    <div *ngIf="!!contents" class="topics text-center col col-12 col-sm-6 offset-sm-3">
+    <div *ngIf="!!contents" class="topics text-center col col-12 col-md-6 offset-md-3">
         <div class="btn-group">
             <button *ngFor="let contentItem of contents"
                     (click)="topic = contentItem.topic;content=contentItem.content"
@@ -10,7 +10,7 @@
             </button>
         </div>
     </div>
-    <div class="content col col-12 col-sm-6 offset-sm-3" *ngIf="!!topic">
+    <div class="content col col-12 col-md-6 offset-md-3" *ngIf="!!topic">
         <h1>{{topic}}</h1>
         <p [innerHtml]="content.replace(guestRegExp, guest)"></p>
     </div>
