@@ -172,6 +172,10 @@
     source-map "^0.5.6"
     tree-kill "^1.0.0"
 
+"@ngx-translate/core@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-translate/core/-/core-8.0.0.tgz#751fd6b512d80f3a748d2de8dfc96dfefa29afe0"
+
 "@schematics/angular@~0.1.0":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.1.2.tgz#4d24e385c21bf2cc9ce4d3c91a8dbdd81aa463ac"

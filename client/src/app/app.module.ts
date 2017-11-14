@@ -2,6 +2,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import {TranslateModule} from '@ngx-translate/core';
 
 // SERVICES
 
@@ -27,7 +28,8 @@ import {InviteService} from "./services/invite.service";
     imports: [
         BrowserModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        TranslateModule.forRoot()
     ],
     providers: [ContentService, InviteService],
     bootstrap: [AppComponent]
