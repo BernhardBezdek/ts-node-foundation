@@ -13,12 +13,13 @@ import {TranslateService} from "@ngx-translate/core";
 export class AppComponent implements OnInit {
 
     public invitation: InviteModel;
-
+    public seats: number = environment.seats;
     public registrationOpened: boolean = false;
     public reminderForLabel: string;
     public name: string;
     public description: string;
     public countdownTime: number;
+    public stats: Object;
 
     constructor(private inviteService: InviteService, private translate: TranslateService) {
         translate.setDefaultLang('en');
@@ -27,6 +28,11 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this._setCountdownTime();
         this.refresh();
+        this.refreshStats();
+
+        setInterval(() => {
+            this.refreshStats();
+        }, 10000);
     }
 
     private _setCountdownTime() {
@@ -48,6 +54,15 @@ export class AppComponent implements OnInit {
             this.name = '';
             this.description = '';
         }
+    }
+
+    public refreshStats() {
+        this
+            .inviteService
+            .fetchStats()
+            .subscribe((stats) => {
+                this.stats = stats;
+            });
     }
 
     public refresh() {

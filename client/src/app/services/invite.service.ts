@@ -32,4 +32,8 @@ export class InviteService {
         return this._httpClient.delete<Boolean>(environment.api + '/invite/' + this._identifier);
     }
 
+    fetchStats(){
+        return this._httpClient.get(environment.api+'/invite/stats');
+    }
+
 }
