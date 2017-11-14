@@ -16,7 +16,7 @@
             <p *ngIf="confirmConfirmation" [innerHtml]="'CONFIRMATION.ATTEND_CONFIRMATION_HTML'|translate"></p>
             <p *ngIf="declineConfirmation" [innerHtml]="'CONFIRMATION.DECLINE_CONFIRMATION_HTML'|translate"></p>
 
-            <button *ngIf="confirmConfirmation"
+            <button *ngIf="confirmConfirmation && registrationOpened"
                     [disabled]="!registrationOpened"
                     (click)="confirm(true)"
                     type="button"

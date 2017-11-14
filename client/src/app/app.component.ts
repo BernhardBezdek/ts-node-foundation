@@ -13,7 +13,6 @@ import {TranslateService} from "@ngx-translate/core";
 export class AppComponent implements OnInit {
 
     public invitation: InviteModel;
-    public seats: number = environment.seats;
     public registrationOpened: boolean = false;
     public reminderForLabel: string;
     public name: string;
