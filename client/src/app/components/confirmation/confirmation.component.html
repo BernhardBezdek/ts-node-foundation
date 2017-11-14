@@ -13,7 +13,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
 
-            <p *ngIf="confirmConfirmation" [innerHtml]="'CONFIRMATION.ATTEND_CONFIRMATION_HTML'|translate"></p>
+            <p *ngIf="confirmConfirmation" [innerHtml]="'CONFIRMATION.ATTEND_CONFIRMATION_HTML'|translate:invitation"></p>
             <p *ngIf="declineConfirmation" [innerHtml]="'CONFIRMATION.DECLINE_CONFIRMATION_HTML'|translate"></p>
 
             <button *ngIf="confirmConfirmation && registrationOpened"
