@@ -3,7 +3,7 @@
         <span>
             — {{'COUNTDOWN.REGISTRATION_OPENS_IN'|translate}} —
         </span>
-        <div *ngIf="countdown.days>0"
+        <div *ngIf="countdown.days>0 || countdown.hours>0 || countdown.minutes>0 || countdown.seconds>0"
              class="alert alert-blank"
              [innerHtml]="'COUNTDOWN.COUNTDOWN'|translate:countdown">
         </div>
