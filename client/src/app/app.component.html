@@ -14,7 +14,6 @@
     <app-content [guest]="invitation.name" *ngIf="!invitation.declined"></app-content>
 
     <ng-container *ngIf="!invitation.declined && !invitation.confirmed">
-        <app-countdown [countdownTime]="countdownTime"></app-countdown>
 
         <div class="row">
             <div class="intro col col-12 col-md-6 offset-md-3">
