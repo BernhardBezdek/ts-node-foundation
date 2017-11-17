@@ -3,7 +3,8 @@
     "TITLE": "TITLE"
   },
   "MAIN": {
-    "DECLINATION": "DECLINATION"
+    "DECLINATION": "DECLINATION",
+    "SOLD_OUT": "SOLD_OUT"
   },
   "CONTENT": {
   },

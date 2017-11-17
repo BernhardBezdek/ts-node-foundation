@@ -22,8 +22,19 @@
             </div>
         </div>
 
-        <app-confirmation [invitation]="invitation"
+        <app-confirmation *ngIf="stats && (stats.seats - stats.confirmations)>0"
+                          [invitation]="invitation"
                           [registrationOpened]="registrationOpened"
                           (stateChanged)="refresh()"></app-confirmation>
+
+        <div class="row" *ngIf="stats">
+            <div class="intro col col-12 col-md-6 offset-md-3">
+                <div *ngIf="(!invitation.confirmed && !invitation.declined && (stats.seats - stats.confirmations===0))"
+                     class="alert alert-blank"
+                     [innerHtml]="'MAIN.SOLD_OUT' | translate:invitation">
+                </div>
+            </div>
+        </div>
+
     </ng-container>
 </div>
